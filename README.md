@@ -12,7 +12,6 @@ Một Progressive Web App (PWA) hiện đại giúp người dân Việt Nam tra
 
 - 🔍 **Tìm kiếm thông minh**: Fuzzy search với Fuse.js, hỗ trợ tìm kiếm gần đúng
 - 📊 **So sánh mức phạt**: Hiển thị chi tiết thay đổi giữa ND100/2019 và ND168/2024  
-- 🤖 **Chatbot AI**: Tích hợp OpenAI API và AI local backup
 - 📱 **PWA Ready**: Cài đặt như app native, hoạt động offline hoàn toàn
 - 🎨 **UI/UX hiện đại**: Responsive design với Tailwind CSS
 - ⚡ **Hiệu năng cao**: Vite build tool, TypeScript, Service Worker caching
