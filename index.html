@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Coach - Tra cứu luật giao thông</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+    <meta name="description" content="Ứng dụng tra cứu và so sánh luật giao thông Việt Nam">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3B82F6">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-600 mb-2">🚗 Traffic Coach</h1>
+            <p class="text-gray-600">Tra cứu và so sánh luật giao thông Việt Nam</p>
+        </header>
+
+        <!-- Search Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex flex-col lg:flex-row gap-4">
+                <div class="flex-1">
+                    <label for="q" class="block text-sm font-medium text-gray-700 mb-2">
+                        Tìm kiếm vi phạm
+                    </label>
+                    <input 
+                        type="text" 
+                        id="q" 
+                        placeholder="Nhập hành vi vi phạm (vd: vượt đèn đỏ, đi ngược chiều...)"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                </div>
+                <div class="lg:w-64">
+                    <label for="vehicle-filter" class="block text-sm font-medium text-gray-700 mb-2">
+                        Phương tiện
+                    </label>
+                    <select 
+                        id="vehicle-filter"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    >
+                        <option value="">Tất cả phương tiện</option>
+                        <option value="Xe máy">Xe máy</option>
+                        <option value="Ô tô">Ô tô</option>
+                        <option value="Xe tải">Xe tải</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="bg-white rounded-lg shadow-md mb-6">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-800">Kết quả tìm kiếm</h2>
+                <p class="text-sm text-gray-600 mt-1">Click vào từng dòng để xem chi tiết so sánh</p>
+            </div>
+            <div id="results" class="divide-y divide-gray-200">
+                <div class="p-6 text-center text-gray-500">
+                    Nhập từ khóa để tìm kiếm các vi phạm giao thông
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="bg-white rounded-lg shadow-md">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-800">
+                    📋 Hướng dẫn sử dụng
+                </h2>
+            </div>
+            <div class="p-6">
+                <div class="space-y-3 text-gray-700">
+                    <p>• <strong>Tìm kiếm:</strong> Nhập từ khóa vi phạm như "vượt đèn đỏ", "đi ngược chiều"</p>
+                    <p>• <strong>Lọc phương tiện:</strong> Chọn loại xe để xem mức phạt cụ thể</p>
+                    <p>• <strong>So sánh:</strong> Click vào kết quả để xem chi tiết và so sánh giữa NĐ 100 và NĐ 168 (Nhớ xem độ tương đồng và đối tượng áp dụng)</p>
+                    <p>• <strong>Dữ liệu:</strong> Được cập nhật từ Nghị định 100/2019 và 168/2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for detailed comparison -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                    <h3 class="text-xl font-semibold">So sánh chi tiết</h3>
+                    <button id="close-modal" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="modal-content" class="p-6">
+                    <!-- Content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings removed - không cần AI nữa -->
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html> 

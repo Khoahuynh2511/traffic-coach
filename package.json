@@ -1,0 +1,30 @@
+{
+  "name": "traffic-coach",
+  "version": "1.0.0",
+  "description": "Ứng dụng tra cứu và so sánh luật giao thông Việt Nam",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && workbox injectManifest",
+    "preview": "vite preview",
+    "prepare-data": "echo 'Tạo law.json thủ công trong thư mục public/'",
+    "parse-docx": "node scripts/simple_parser.js",
+    "lint": "eslint src --ext .ts,.js",
+    "format": "prettier --write src/**/*.{ts,js,html,css}"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "cheerio": "^1.0.0",
+    "fuse.js": "^7.0.0",
+    "mammoth": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.2.0",
+    "vite": "^5.0.0",
+    "workbox-cli": "^7.0.0"
+  }
+}
